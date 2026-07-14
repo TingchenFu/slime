@@ -1,0 +1,31 @@
+# Custom args loaded by slime via --custom-config-path.
+# Each top-level key is set onto `args` via setattr in
+# slime/utils/arguments.py:1885-1891, so they become args.<key>.
+
+# ===== ReAct rollout loop =====
+react_max_turns: 16          # max assistant turns per sample (was tool_max_turns)
+max_tool_calls: 100          # cumulative cap on tool calls across all turns
+
+# ===== AirsBench task layout =====
+airsbench_tasks_root: /engshare/maui_dojo/shared/airsbench/tasks
+
+# ===== Container / sandbox =====
+container_image: /engshare/maui_dojo/shared/agent/2025-12-30.sif
+working_dir: /workspace
+env_cache_dir: /engshare/maui_dojo/shared/airsbench/env_cache
+worker_startup_timeout: 1800  # seconds
+exe_timeout: 300
+
+# ===== SLURM allocator =====
+slurm_time_min: 240
+slurm_cpus_per_node: 16
+slurm_gpus_per_node: 0
+slurm_account: maui_dojo
+slurm_qos: normal
+slurm_mem: 64G
+slurm_partition: learn
+slurm_use_arrays: true
+
+
+
+allow_last_submit: true
